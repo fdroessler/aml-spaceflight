@@ -12,6 +12,7 @@ def create_pipeline(**kwargs) -> Pipeline:
                 inputs="companies",
                 outputs="preprocessed_companies",
                 name="preprocess_companies_node",
+                tags=["azureml.compute:cpu-cluster-2"],
             ),
             node(
                 func=preprocess_shuttles,
