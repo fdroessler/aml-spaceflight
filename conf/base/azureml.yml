@@ -1,0 +1,23 @@
+azure:
+  # Name of the Azure ML Compute Cluster
+  cluster_name: "cpu-cluster"
+  # Azure ML Experiment Name
+  experiment_name: "azureml"
+  # Azure resource group to use
+  resource_group: "kedro-ml"
+  # Azure ML Workspace name
+  workspace_name: "kedro"
+
+  # Temporary storage settings - this is used to pass some data between steps
+  # if the data is not specified in the catalog directly
+  temporary_storage:
+    # Azure Storage account name, where the temp data should be stored
+    # It's recommended to set Lifecycle management rule for storage container, to avoid costs of long-term storage
+    # of the temporary data. Temporary data will be stored under abfs://<containter>/kedro-azureml-temp path
+    # See https://docs.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-policy-configure?tabs=azure-portal
+    account_name: "kedro4166948694"
+    # Name of the storage container
+    container: "azureml"
+docker:
+  # Docker image to use during pipeline execution
+  image: "roesslerfd/kedro:latest"
